@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.example.databiningtext.MainActivity.Listener" />
+        <import type="com.example.databiningtext.ObservableGood"
+            alias="Good"/>
+        <variable
+            name="good"
+            type="Good" />
+        <variable
+            name="listener"
+            type="Listener" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="@{good.name}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="@{good.details}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="@{String.valueOf(good.prices)}"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变价格和细节"
+            android:layout_gravity="center"
+            android:onClick="@{()->listener.changePrice()}"
+            android:textAllCaps="false"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变名字和细节"
+            android:layout_gravity="center"
+            android:onClick="@{()->listener.changeName()}"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+</layout>
